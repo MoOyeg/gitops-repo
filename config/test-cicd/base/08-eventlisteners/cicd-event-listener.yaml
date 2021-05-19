@@ -13,7 +13,6 @@ spec:
     interceptors:
     - github:
         secretRef:
-          namespace: test-cicd
           secretKey: webhook-secret-key
           secretName: gitops-webhook-secret
     - cel:
@@ -30,7 +29,6 @@ spec:
     interceptors:
     - github:
         secretRef:
-          namespace: test-cicd
           secretKey: webhook-secret-key
           secretName: webhook-secret-test-dev-taxi
     - cel:
