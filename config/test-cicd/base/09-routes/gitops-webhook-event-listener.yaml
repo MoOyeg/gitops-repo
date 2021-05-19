@@ -6,8 +6,11 @@ metadata:
   namespace: test-cicd
 spec:
   host: ""
-  port:
-    targetPort: 8080
+  ports:
+    - name: http-listener
+      protocol: TCP
+      port: 8080
+      targetPort: 8000
   to:
     kind: Service
     name: el-cicd-event-listener
