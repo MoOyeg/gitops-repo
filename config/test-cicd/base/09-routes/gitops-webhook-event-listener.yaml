@@ -6,7 +6,7 @@ metadata:
   namespace: test-cicd
 spec:
   host: ""
-  ports:
+  port:
     - name: http-listener
       protocol: TCP
       port: 8080
