@@ -11,6 +11,9 @@ resources:
 - 03-secrets/git-host-basic-auth-token.yaml
 - 03-secrets/gitops-webhook-secret.yaml
 - 03-secrets/webhook-secret-test-dev-taxi.yaml
+- 03-secrets/webhook-secret-test-dev-testflask.yaml
+- 03-secrets/webhook-secret-test-stage-taxi.yaml
+- 03-secrets/webhook-secret-test-stage-testflask.yaml
 - 04-tasks/deploy-from-source-task.yaml
 - 05-pipelines/app-ci-pipeline.yaml
 - 05-pipelines/ci-dryrun-from-push-pipeline.yaml

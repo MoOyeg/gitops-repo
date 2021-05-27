@@ -13,6 +13,7 @@ spec:
     interceptors:
     - github:
         secretRef:
+          namespace: test-cicd
           secretKey: webhook-secret-key
           secretName: gitops-webhook-secret
     - cel:
@@ -29,6 +30,7 @@ spec:
     interceptors:
     - github:
         secretRef:
+          namespace: test-cicd
           secretKey: webhook-secret-key
           secretName: webhook-secret-test-dev-taxi
     - cel:
@@ -37,6 +39,22 @@ spec:
         - expression: body.ref.split('/')[2]
           key: ref
     name: app-ci-build-from-push-taxi
+    template:
+      name: app-ci-template
+  - bindings:
+    - ref: github-push-binding
+    interceptors:
+    - github:
+        secretRef:
+          namespace: test-cicd
+          secretKey: webhook-secret-key
+          secretName: webhook-secret-test-stage-testflask
+    - cel:
+        filter: (header.match('X-GitHub-Event', 'push') && body.repository.full_name == 'MoOyeg/gitops-repo')
+        overlays:
+        - expression: body.ref.split('/')[2]
+          key: ref
+    name: app-ci-build-from-push-testflask
     template:
       name: app-ci-template
 status:

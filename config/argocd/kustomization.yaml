@@ -3,4 +3,7 @@ resources:
 - cicd-app.yaml
 - test-dev-app-taxi-app.yaml
 - test-dev-env-app.yaml
+- test-dev-testflask-app-app.yaml
+- test-stage-app-taxi-app.yaml
 - test-stage-env-app.yaml
+- test-stage-testflask-app-app.yaml

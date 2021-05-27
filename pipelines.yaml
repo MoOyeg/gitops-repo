@@ -18,12 +18,35 @@ environments:
         secret:
           name: webhook-secret-test-dev-taxi
           namespace: test-cicd
+  - name: testflask-app
+    services:
+    - name: testflask
+      webhook:
+        secret:
+          name: webhook-secret-test-dev-testflask
+          namespace: test-cicd
   name: test-dev
   pipelines:
     integration:
       bindings:
       - github-push-binding
       template: app-ci-template
-- name: test-stage
+- apps:
+  - name: testflask-app
+    services:
+    - name: testflask
+      source_url: https://github.com/MoOyeg/gitops-repo.git
+      webhook:
+        secret:
+          name: webhook-secret-test-stage-testflask
+          namespace: test-cicd
+  - name: app-taxi
+    services:
+    - name: taxi
+      webhook:
+        secret:
+          name: webhook-secret-test-stage-taxi
+          namespace: test-cicd
+  name: test-stage
 gitops_url: https://github.com/MoOyeg/gitops-repo.git
 version: 1
